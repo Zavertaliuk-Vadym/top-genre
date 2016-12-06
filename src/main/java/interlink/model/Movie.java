@@ -8,8 +8,8 @@ import java.util.List;
 @Table(name = "movie")
 public class Movie {
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id",nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
 
     @Column(name = "name")
@@ -24,6 +24,56 @@ public class Movie {
     @Column(name = "comm_id")
     Integer comm_id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tasksList")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie")
     private List<Comments> comm = new ArrayList();
+
+    public Movie() {
+    }
+
+    public Movie(String name, String description, Integer duration, Integer comm_id) {
+        this.name = name;
+        this.description = description;
+        this.duration = duration;
+        this.comm_id = comm_id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public Integer getComm_id() {
+        return comm_id;
+    }
+
+    public void setComm_id(Integer comm_id) {
+        this.comm_id = comm_id;
+    }
 }
