@@ -1,5 +1,7 @@
 package interlink.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,7 +9,7 @@ import javax.persistence.*;
 public class Comments {
 
     @Id
-    @Column(name = "id",nullable = false)
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
 
@@ -17,6 +19,7 @@ public class Comments {
     @Column(name = "movie_id")
     Integer movie_id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "movie_id", insertable = false, updatable = false)
     private Movie movie;
@@ -50,5 +53,13 @@ public class Comments {
 
     public void setMovie_id(Integer movie_id) {
         this.movie_id = movie_id;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 }
