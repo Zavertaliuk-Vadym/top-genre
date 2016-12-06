@@ -15,7 +15,7 @@ public class MovieDao {
     @Autowired
     SessionFactory sessionFactory;
 
-    public List<Movie> getAllLists() {
+    public List<Movie> getAllMovie() {
         Criteria criteria = sessionFactory.getCurrentSession().
                 createCriteria(Movie.class);
         return (List<Movie>) criteria.list();

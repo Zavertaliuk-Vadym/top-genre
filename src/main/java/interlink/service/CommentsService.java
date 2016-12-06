@@ -1,6 +1,8 @@
 package interlink.service;
 
+import interlink.dao.CommentsDao;
 import interlink.dao.MovieDao;
+import interlink.model.Comments;
 import interlink.model.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,11 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MovieService {
+public class CommentsService {
     @Autowired
-    MovieDao movieDao;
+    CommentsDao commentsDao;
 
-    public List<Movie> getAllMovie(){
-        return movieDao.getAllMovie();
+    public List<Comments> getAllComm(){
+        return commentsDao.getAllComm();
     }
 }
