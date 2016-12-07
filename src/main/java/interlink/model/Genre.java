@@ -13,11 +13,23 @@ public class Genre {
     @Column(name = "name")
     String name;
 
+    @Column(name = "rating")
+    Integer rating;
+
     public Genre() {
     }
 
-    public Genre(String name) {
+    public Genre(String name,Integer rating) {
+        this.rating=rating;
         this.name = name;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 
     public String getName() {

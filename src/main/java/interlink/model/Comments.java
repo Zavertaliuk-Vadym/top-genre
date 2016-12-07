@@ -14,7 +14,7 @@ public class Comments {
     Integer id;
 
     @Column(name = "like")
-    Boolean like;
+    Integer like;
 
     @Column(name = "movie_id")
     Integer movie_id;
@@ -27,7 +27,7 @@ public class Comments {
     public Comments() {
     }
 
-    public Comments(Boolean like) {
+    public Comments(Integer like) {
         this.like = like;
     }
 
@@ -39,11 +39,11 @@ public class Comments {
         this.id = id;
     }
 
-    public Boolean getLike() {
+    public Integer getLike() {
         return like;
     }
 
-    public void setLike(Boolean like) {
+    public void setLike(Integer like) {
         this.like = like;
     }
 
